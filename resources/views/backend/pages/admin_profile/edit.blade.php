@@ -36,12 +36,11 @@
             @error('phone')
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
-
             <div class="form-group">
-                <label for="exampleInputEmail1">Date of Birth</label>
-                <input type="date" name="birth_day" value="{{$admins->date}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                <label for="exampleInputEmail1">Image</label>
+                <input type="file" name="image" value="{{$admins->image}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
             </div>
-            @error('birth_day')
+            @error('image')
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
             <div class="form-group">
@@ -52,10 +51,10 @@
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
             <div class="form-group">
-                <label for="exampleInputEmail1">Image</label>
-                <input type="file" name="image" value="{{$admins->image}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <label for="exampleInputEmail1">Age</label>
+                <input type="text" name="age" value="{{$admins->age}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Your address" required>
             </div>
-            @error('image')
+            @error('age')
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
             <div class="form-group">
@@ -68,6 +67,25 @@
             @error('gender')
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
+
+            <div class="form-group">
+                <label for="exampleInputEmail1">Date of Birth</label>
+                <input type="date" name="birth_day" value="{{$admins->date}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+            </div>
+            @error('birth_day')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+            <div class="form-group">
+                <label for="exampleInputEmail1">Description</label>
+                <textarea name="description" id="" cols="30" class="form-control"  rows="10">{{$admins->description}}</textarea>
+                
+            </div>
+            @error('gender')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+           
+          
+            
             <button type="submit" class="btn btn-primary mt-2">Submit</button>
         </form>
     </div>

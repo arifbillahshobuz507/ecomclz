@@ -29,18 +29,18 @@ class ProductsController extends Controller
     public function store(Request $request)
     {
         //      dd($request->all());
-        $validate = Validator::make($request->all(), [
-            'product_name' => 'required',
-            'category_id' => 'required',
-            'subcategory_id' => 'required',
-            'brand_id' => 'required',
-            'release_data' => 'required',
-            'quantity' => 'required',
-            'price' => 'required'
-        ]);
-        if ($validate->fails()) {
-            return redirect()->back()->withErrors($validate);
-        }
+        // $validate = Validator::make($request->all(), [
+        //     'product_name' => 'required',
+        //     'category_id' => 'required',
+        //     'subcategory_id' => 'required',
+        //     'brand_id' => 'required',
+        //     'release_data' => 'required',
+        //     'quantity' => 'required',
+        //     'price' => 'required'
+        // ]);
+        // if ($validate->fails()) {
+        //     return redirect()->back()->withErrors($validate);
+        // }
         //         dd($validate);
         $fileName = null;
         if ($request->hasFile('image')) {
@@ -53,10 +53,9 @@ class ProductsController extends Controller
             'image' => $fileName,
             'price' => $request->price,
             'category_id' => $request->category_id,
-            'sub_category_id' => $request->sub_category_id,
+            'subcategory_id' => $request->sub_category_id,
             'brand_id' => $request->brand_id,
             'release_data' => $request->release_data,
-            'quantity' => $request->quantity,
             'short_descripton' => $request->descripton
         ]);
         return redirect()->route('product.list');

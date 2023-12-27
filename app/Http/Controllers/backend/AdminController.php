@@ -167,9 +167,23 @@ class AdminController extends Controller
       if ($request->hasFile('image')) {
           $file = $request->file('image');
           $fileName = date('Ymdhis'). ".". $file->getClientOriginalName();
-          $file->storeAs('/category/image', $fileName);
+          $file->storeAs('/profile/image', $fileName);
       }
-      $admins->update->$request->input()->except(['_token','image']);
+      // $admins->update->$request->input()->except(['_token','image']);
+      $admins->update([
+        'first_name' => $request->first_name,
+        'last_name' => $request->last_name,
+        'gmail' => $request->gmail,
+        'phone' => $request->phone,
+        'role' => 'Admin',
+        'image' => $fileName,
+        'address' => $request->address,
+        'age' => $request->age,
+        'gender' => $request->gender,
+        'birth_day' => $request->birth_day,
+        'description' => $request->description
+      ]);
+      return redirect()->back()->with('success','Profile Updated Successfully');
     }
   }
 

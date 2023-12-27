@@ -10,4 +10,6 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class UserLogin extends Authenticatable
 {
     use HasFactory;
+    protected $guarded = [];
+
 }

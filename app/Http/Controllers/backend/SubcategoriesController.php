@@ -40,18 +40,18 @@ class SubcategoriesController extends Controller
         }
         //dd($request->all());
         //image file unique name
-        $fileName = null;
-        if ($request->hasFile('image')) {
-            $file = $request->file('image');
-            $fileName = date('Ymdhis') . "." . $file->getClientOriginalExtension();
-            $file->storeAs('/subCategory/image', $fileName);
-        }
+        // $fileName = null;
+        // if ($request->hasFile('image')) {
+        //     $file = $request->file('image');
+        //     $fileName = date('Ymdhis') . "." . $file->getClientOriginalExtension();
+        //     $file->storeAs('/subCategory/image', $fileName);
+        // }
         //dd($request->all());
         // sub_category data store 
         Subcategory::create([
             'category_id' => $request->category_id,
             'name' => $request->sub_category_name,
-            'image' => $fileName,
+            // 'image' => $fileName,
             'descripton' => $request->descripton
         ]);
         //dd($request->all());

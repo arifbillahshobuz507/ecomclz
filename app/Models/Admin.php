@@ -10,5 +10,19 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class Admin extends Authenticatable
 {
     use HasFactory;
-    protected  $guarded=[];
+    protected $fillable = [
+        'first_name',
+        'last_name',
+        'gmail',
+        'phone',
+        'password',
+        'role',
+        'otp',
+        'image',
+        'address',
+        'age',
+        'gender',
+        'birth_day',
+        'description'
+    ];
 }

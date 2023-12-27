@@ -49,8 +49,11 @@ Route::group(['prefix' => 'admin'], function () {
         });
 
         // admin Profile Routes
-        Route::get('/admin/profile', [AdminController::class, 'profile'])->name('admin.profile');
-
+        Route::group(['prefix' => 'profile'], function () {
+        Route::get('/profile', [BackendAdminController::class, 'profile'])->name('admin.profile');
+        Route::get('/profile/edit/{id}', [BackendAdminController::class, 'edit_profile'])->name('admin.profile.edit');
+        Route::post('/profile/update/{id}', [BackendAdminController::class, 'update_profile'])->name('admin.profile.update');
+        });
         // customer Routes
         Route::group(['prefix' => 'customer'], function () {
             Route::get('/list', [CustomerController::class, 'list'])->name('customer.list');

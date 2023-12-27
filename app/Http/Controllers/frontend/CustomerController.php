@@ -19,7 +19,7 @@ class CustomerController extends Controller
     public function from()
     {
         // dd('hello');
-        return view('forntend.pages.customer.form');
+        return view('frontend.pages.customer.form');
     }
     public function store(Request $request)
     {

@@ -61,6 +61,10 @@
           <!-- Breadcrumb -->
           
           <!-- /Breadcrumb -->
+          
+          @foreach($admins as $admin)
+          
+         
     
           <div class="row gutters-sm">
             <div class="col-md-4 mb-3">
@@ -87,7 +91,7 @@
                       <h6 class="mb-0">First Name</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      Kenneth 
+                      {{$admin->first_name}} 
                     </div>
                   </div>
                   <hr>
@@ -96,7 +100,7 @@
                       <h6 class="mb-0">Last Name</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                       Valdez
+                    {{$admin->last_name}} 
                     </div>
                   </div>
                   <hr>
@@ -105,7 +109,7 @@
                       <h6 class="mb-0">Email</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      fip@jukmuh.al
+                    {{$admin->gmail}} 
                     </div>
                   </div>
                   <hr>                  
@@ -114,25 +118,16 @@
                       <h6 class="mb-0">Mobile</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      (320) 380-4539
+                      {{$admin->phone}} 
                     </div>
                   </div>
                   <hr>
                   <div class="row">
                     <div class="col-sm-3">
-                      <h6 class="mb-0">City</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                      Bay Area, San Francisco, CA
-                    </div>
-                  </div>
-                  <hr>
-																		<div class="row">
-                    <div class="col-sm-3">
                       <h6 class="mb-0">Address</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      Bay Area, San Francisco, CA
+                    {{$admin->address}} 
                     </div>
                   </div>
                   <hr>
@@ -141,7 +136,7 @@
                       <h6 class="mb-0">Gender</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      Bay Area, San Francisco, CA
+                    {{$admin->gender}} 
                     </div>
                   </div>
                   <hr>
@@ -151,13 +146,13 @@
                       <h6 class="mb-0">Birth Day</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      Bay Area, San Francisco, CA
+                    {{$admin->birth_day}} 
                     </div>
                   </div>
                   <hr>
                   <div class="row">
                     <div class="col-sm-12">
-                      <a class="btn btn-info " href="">Edit</a>
+                      <a class="btn btn-success" href="{{route('admin.profile.edit', $admin->id)}}">Edit</a>
                     </div>
                   </div>
                 </div>
@@ -169,6 +164,7 @@
 
             </div>
           </div>
+          @endforeach
 
         </div>
     </div>

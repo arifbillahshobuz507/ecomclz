@@ -31,16 +31,16 @@ class CategoriesController extends Controller
         if ($validate->fails()) {
             return redirect()->back()->withErrors($validate);
         }
-        // //dd($request->all());
-        // $fileName = null;
-        // if ($request->hasFile('image')) {
-        //     $file = $request->file('image');
-        //     $fileName = date('Ymdhis'). ".". $file->getClientOriginalName();
-        //     $file->storeAs('/category/image', $fileName);
-        // }
+        //dd($request->all());
+        $fileName = null;
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $fileName = date('Ymdhis'). ".". $file->getClientOriginalName();
+            $file->storeAs('/category/image', $fileName);
+        }
         Category::create([
             'name'=>$request->category_name,
-            // 'image'=>$fileName,
+            'image'=>$fileName,
             'descripton'=>$request->descripton
         ]);
         //dd($request->all());
@@ -94,16 +94,16 @@ class CategoriesController extends Controller
         }else{
 
             //dd($request->all());
-        // $fileName = $categories->image;
-        // if ($request->hasFile('image')) {
-        //     $file = $request->file('image');
-        //     $fileName = date('Ymdhis'). ".". $file->getClientOriginalName();
-        //     $file->storeAs('/category/image', $fileName);
-        // }
+        $fileName = $categories->image;
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $fileName = date('Ymdhis'). ".". $file->getClientOriginalName();
+            $file->storeAs('/category/image', $fileName);
+        }
         if($categories){
             $categories->Update([
                 'name'=>$request->category_name,
-                // 'image'=>$fileName,
+                'image'=>$fileName,
                 'descripton'=>$request->descripton
             ]);
         }        

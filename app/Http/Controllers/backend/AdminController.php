@@ -153,10 +153,24 @@ class AdminController extends Controller
     return view("backend.pages.admin_profile.profile",compact('admins'));
   }
 
-  public function edit_profile()
+  public function edit_profile($id)
   {
-    // $admins = Admin::find($id);
-    return view('backend.pages.admin_profile.edit',/*  compact('admins') */);
+    $admins = Admin::find($id);
+    return view('backend.pages.admin_profile.edit',compact('admins'));   
+  }
+  public function update_profile(Request $request , $id){
+    // dd($request->input());
+    $admins = Admin::find($id);
+
+    if($admins){
+      $fileName = null;
+      if ($request->hasFile('image')) {
+          $file = $request->file('image');
+          $fileName = date('Ymdhis'). ".". $file->getClientOriginalName();
+          $file->storeAs('/category/image', $fileName);
+      }
+      $admins->update->$request->input()->except(['_token','image']);
+    }
   }
 
 

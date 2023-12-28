@@ -27,8 +27,7 @@
           <th scope="col">Category Name</th>
           <th scope="col">Sub category Name</th>
           <th scope="col">Brand Name</th>
-          <th scope="col">Price</th>
-          <th scope="col">Stock Quantity</th>
+          <th scope="col">Price</th>          
           <th scope="col">Release Date</th>
           <th scope="col">action</th>
         </tr>

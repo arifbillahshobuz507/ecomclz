@@ -39,11 +39,7 @@
             <div class="form-group">
                 <label for="release_data">Release Date</label>
                 <input type="date" value="{{$product->release_data}}" name="release_data" class="form-control" id="release_data" required>
-            </div>
-            <div class="form-group">
-                <label for="quantity">Stock Quantity</label>
-                <input type="number" value="{{$product->quantity}}" name="quantity" class="form-control" id="quantity" placeholder="stock Quantity" required>
-            </div>
+            </div>            
             <div class="form-group">
                 <label for="price">Price</label>
                 <input type="number" value="{{$product->price}}" name="price" class="form-control" id="price" placeholder="Enter Your Price" required>
